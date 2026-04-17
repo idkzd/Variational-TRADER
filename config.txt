@@ -1,0 +1,37 @@
+# ══════════════════════════════════════════════════════════════
+#  Variational Omni Trading Bot — Configuration
+#  Сгенерировано через GUI
+# ══════════════════════════════════════════════════════════════
+
+# Торговая пара
+symbol = BTC-USDC
+
+# Размер позиции ($)
+position_size_usdc = 500.0
+
+# Плечо (x)
+leverage = 50
+
+# TP/SL дистанция
+tp_sl_distance_pct = 0.0005
+
+# Порог спреда (%)
+market_spread_threshold = 0.02
+
+# Мин. баланс ($)
+min_balance_usdc = 5.0
+
+# Проскальзывание
+slippage_tolerance = 0.005
+
+# Интервал опроса (с)
+poll_interval = 1.0
+
+# Таймаут ордера (с)
+order_fill_timeout = 60.0
+
+# Пауза между циклами (с)
+cycle_cooldown = 3.0
+
+# Макс. ошибок подряд
+max_consecutive_errors = 10

@@ -1,0 +1,10 @@
+# Core dependencies
+httpx>=0.27.0          # HTTP client (fallback)
+curl_cffi>=0.15.0      # HTTP client with Cloudflare bypass (TLS fingerprint impersonation)
+python-dotenv>=1.0.0   # Load .env files
+customtkinter>=5.2.0   # Modern dark GUI
+Pillow>=10.0.0         # Image support for GUI
+
+# Optional: for direct on-chain interaction (deposit/withdraw)
+# web3>=7.0.0
+# eth-account>=0.13.0
