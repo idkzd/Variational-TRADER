@@ -308,6 +308,7 @@ class DeltaNeutralStrategy:
         check_count = 0
         pending_outcome: str | None = None
         pending_trigger: float = 0.0
+        current = entry_price  # track last known price
 
         while True:
             check_count += 1
@@ -389,6 +390,11 @@ class DeltaNeutralStrategy:
                 if "exceeds position size" in exc_str:
                     time.sleep(3)
                     continue
+
+                # Position already closed externally
+                if "No position exists" in exc_str:
+                    logger.info("Position already closed — exiting monitor")
+                    return pending_outcome or "TP_HIT", current
 
             time.sleep(self._cfg.poll_interval)
 
