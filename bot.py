@@ -25,7 +25,7 @@ from exceptions import (
 from logger import get_trade_logger, setup_logging
 from price_feed import PriceFeed
 from risk_manager import BotPausedError, RiskManager
-from strategy import DeltaNeutralStrategy
+from smart_strategy import SmartStrategy
 from variational_client import VariationalClient
 
 logger: logging.Logger  # initialised in run()
@@ -48,7 +48,7 @@ class TradingBot:
         self._client: VariationalClient | None = None
         self._price_feed: PriceFeed | None = None
         self._risk_mgr: RiskManager | None = None
-        self._strategy: DeltaNeutralStrategy | None = None
+        self._strategy: SmartStrategy | None = None
         self._trade_logger: logging.Logger | None = None
 
         # Counters
@@ -210,7 +210,7 @@ class TradingBot:
             )
             market_id = self._cfg.trading.symbol
 
-        self._strategy = DeltaNeutralStrategy(
+        self._strategy = SmartStrategy(
             client=self._client,
             price_feed=self._price_feed,
             risk_mgr=self._risk_mgr,
