@@ -4,6 +4,7 @@ curl_cffi>=0.15.0      # HTTP client with Cloudflare bypass (TLS fingerprint imp
 python-dotenv>=1.0.0   # Load .env files
 customtkinter>=5.2.0   # Modern dark GUI
 Pillow>=10.0.0         # Image support for GUI
+requests>=2.31.0       # Telegram Bot API
 
 # Optional: for direct on-chain interaction (deposit/withdraw)
 # web3>=7.0.0

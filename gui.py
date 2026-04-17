@@ -634,6 +634,11 @@ class VariationalBotApp(ctk.CTk):
 
             bot._initialise()
 
+            # Start Telegram notifier
+            from telegram_notifier import TelegramNotifier
+            tg = TelegramNotifier(client=bot._client, interval_seconds=3600)
+            tg.start()
+
             while self._running:
                 # Pause logic
                 while self._paused and self._running:
@@ -653,6 +658,7 @@ class VariationalBotApp(ctk.CTk):
                     time.sleep(bot_config.trading.cycle_cooldown)
 
             bot._shutdown()
+            tg.stop()
 
         except Exception as exc:
             self._log_queue.put((logging.CRITICAL, f"Bot crashed: {exc}"))
